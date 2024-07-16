@@ -1,8 +1,12 @@
 # Real-Time Server Monitoring and Alert System
 
-
+![Flow Diagram](flow.png)
 
 This project demonstrates a real-time server monitoring system using RabbitMQ for backend message queuing and Socket.IO for real-time communication of alerts to administrators. The system checks server status, detects anomalies, and sends real-time alerts.
+
+## Screenshot
+
+![Screenshot](screenshot.png)
 
 ## Business Process
 
