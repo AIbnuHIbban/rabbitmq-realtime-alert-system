@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>RabbitMQ and Socket.IO</title>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <h1>Server Status Alerts</h1>
+    <ul id="alerts"></ul>
+    <script>
+        const socket = io();
+        socket.on('connect', () => {
+            console.log('Connected to Socket.IO server');
+        });
+        socket.on('connect_error', (error) => {
+            console.log('Connection error:', error);
+        });
+        socket.on('status_update', (data) => {
+            console.log('Status update received:', data);
+            const alertsList = document.getElementById('alerts');
+            const listItem = document.createElement('li');
+            listItem.textContent = `Alert: ${data.server} is now at ${data.cpu}% CPU usage`;
+            alertsList.appendChild(listItem);
+        });
+    </script>
+</body>
+
+</html>
